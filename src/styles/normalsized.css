@@ -91,6 +91,8 @@ a {
   overflow: hidden;
   position: relative;
   width: 100%;
+  border: 2px solid black;
+  text-align: center;
 }
 
 /* Base style for your card */
@@ -131,6 +133,10 @@ a {
     opacity: 0;
   }
 }
+.hero img{
+  width: 100%;
+}
+
 .category {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
