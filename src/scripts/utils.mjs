@@ -87,4 +87,31 @@ export function alertMessage(message, scroll = true, duration = 3000) {
   // setTimeout(function () {
   //   main.removeChild(alert);
   // }, duration);
+
+}
+// check for vulgarity and relevance in relationship advice text
+export function isValidRelationshipAdvice(text) {
+
+  // Keywords that match your site's target audience
+const RELATIONSHIP_KEYWORDS = [
+  "love", "relationship", "partner", "marry", "marriage", "date", "dating", 
+  "parent", "child", "children", "friend", "family", "talk", "communicate", 
+  "argue", "trust", "feel", "listen", "together", "someone"
+];
+
+// Words you want to strictly prohibit on your platform
+const VULGAR_BLACKLIST = [
+  "bitch", "shit", "fuck", "asshole", "bastard" // Add any specific words you want to block
+];
+
+  const lowerText = text.toLowerCase();
+
+  // 1. Check for vulgarity: If it contains ANY blacklisted word, reject it immediately
+  const hasVulgarity = VULGAR_BLACKLIST.some(word => lowerText.includes(word));
+  if (hasVulgarity) return false;
+
+  // 2. Check for relevance: Does it contain at least one relationship keyword?
+  const isRelevant = RELATIONSHIP_KEYWORDS.some(keyword => lowerText.includes(keyword));
+  
+  return isRelevant;
 }

@@ -85,6 +85,52 @@ a {
   color: #c8102e;
 }
 
+/* landing page */
+/* Container must hide elements that slide outside of it */
+#welcome-advice {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Base style for your card */
+.advice-card {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Slide IN from the right side */
+.swipe-in {
+  animation: swipeInRight 0.4s forwards ease-out;
+}
+
+/* Slide OUT to the left side */
+.swipe-out {
+  animation: swipeOutLeft 0.4s forwards ease-in;
+}
+
+/* Animation Keyframes */
+@keyframes swipeInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swipeOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
 .category {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
@@ -139,7 +185,7 @@ a {
   }
 }
 
-/* --- 🔑 ANIMATION KEYFRAMES --- */
+/* --- 🔑 ANIMATION KEYFRAMES for landing page links --- */
 
 /* Right Entry & Grow */
 @keyframes growFromRight {

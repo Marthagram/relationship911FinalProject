@@ -15,6 +15,8 @@ function relationshipTemplate(relationship) {
   `;
 }
 
+
+
 export default class relationshipList {
   constructor(category, datasource, listElement) {
     this.category = category;
@@ -55,7 +57,7 @@ export default class relationshipList {
     // 1. Grab whatever is currently in localStorage
     const cartItems = getLocalStorage("so-cart") || [];
 
-    // 2. ✅ FIX: Use lowercase .id matching your JSON fields and .some() for clean true/false flag
+    // 2. Use lowercase .id matching your JSON fields and .some() for clean true/false flag
     const isAlreadyFavorite = cartItems.some((item) => item.id === favorite.id);
 
     if (!isAlreadyFavorite) {

@@ -7,27 +7,7 @@ function convertToJson(res) {
 }
 
 
-async function getExternalEmergencyAdvice() {
-  const url = "https://api.adviceslip.com/advice";
-  
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("API request failed");
-    
-    const data = await response.json();
-    console.table("Raw Third-Party Data:", data);
 
-    // 🔄 MAP THE DATA: Translate their fields into your project's custom fields!
-  
-
-  } catch (error) {
-    console.error("Error pulling third-party advice:", error);
-    
-    // Fallback content so your site doesn't crash if the external API drops offline
-  }
-}
-
-getExternalEmergencyAdvice();
 
 export default class relationshipdata {
   constructor(category) {
