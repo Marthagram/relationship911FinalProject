@@ -12,7 +12,7 @@ function convertToJson(res) {
 export default class relationshipdata {
   constructor(category) {
     this.category = category;
-    this.path = `../public/json/${this.category}.json`;
+    this.path = `/json/${this.category}.json`;
   }
   getData() {
     return fetch(this.path)
