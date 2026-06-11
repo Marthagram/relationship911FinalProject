@@ -40,7 +40,7 @@ document.getElementById("sendBtn").onclick = async () => {
     }
 
     const reply = data.choices[0].message.content;
-    chatBox.innerHTML += `<p><b>AI:</b> ${reply}</p>`;
+    chatBox.innerHTML += `<p><b>Therapist:</b> ${reply}</p>`;
 
   } catch (err) {
     chatBox.innerHTML += `<p style="color:red;"><b>Error:</b> ${err.message}</p>`;
