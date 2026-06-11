@@ -10,7 +10,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/index.html"),
         specificCategory: resolve(__dirname, "src/specificCategory/index.html"),
+        aichat: resolve(__dirname, "src/specificCategory/aichat.html"),
+        comment: resolve(__dirname, "src/specificCategory/comment.html"),
         favorite: resolve(__dirname, "src/favorite/index.html")
+
       },
     },
   },

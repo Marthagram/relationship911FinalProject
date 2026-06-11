@@ -197,7 +197,31 @@ ol {
     animation: growFromRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation-delay: 0.5s; /* Staggered delay */
   }
-  /* --- 🔑 ANIMATION KEYFRAMES for landing page links --- */
+ 
+
+  & > li > a {
+    display: block;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    text-align: center;
+    font-family: var(--font-body);
+    color: #333;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease;
+
+    /* Subtle hover effect to complement the intro animation */
+  }
+   &:hover {
+      background-color: #e4e4e4;
+      transform: translateY(-2px);
+    }
+}
+
+ /* --- 🔑 ANIMATION KEYFRAMES for landing page links --- */
 
 /* Right Entry & Grow */
 @keyframes growFromRight {
@@ -220,28 +244,6 @@ ol {
   100% {
     opacity: 1;
     transform: translateX(0) scale(1);
-  }
-}
-
-  & > li > a {
-    display: block;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    text-align: center;
-    font-family: var(--font-body);
-    color: #333;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease;
-
-    /* Subtle hover effect to complement the intro animation */
-    &:hover {
-      background-color: #e4e4e4;
-      transform: translateY(-2px);
-    }
   }
 }
 
