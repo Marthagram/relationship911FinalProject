@@ -15,8 +15,6 @@ function relationshipTemplate(relationship) {
   `;
 }
 
-
-
 export default class relationshipList {
   constructor(category, datasource, listElement) {
     this.category = category;
@@ -78,5 +76,5 @@ export default class relationshipList {
       console.log("Item is a duplicate. Skipping save.");
       alertMessage("This item is already in your favorites list!");
     }
-  }
+  } 
 }

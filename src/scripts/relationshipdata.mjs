@@ -6,9 +6,6 @@ function convertToJson(res) {
   }
 }
 
-
-
-
 export default class relationshipdata {
   constructor(category) {
     this.category = category;
