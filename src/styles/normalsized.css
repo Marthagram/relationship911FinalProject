@@ -46,9 +46,14 @@ h1,
 h2,
 h3 {
   font-family: var(--font-headings);
-  color: var(--primary-color);
   text-align: center;
   margin: 20px;
+}
+h1{
+  color: var(--accent-2);
+}
+h2, h3{
+  color: var(--primary-color);
 }
 
 p {
@@ -59,7 +64,7 @@ p {
   font-size: 1.1em;
 }
 
-a:hover, button:hover {
+a:hover, button:hover{
   border-color: #3d2645;
 }
 
@@ -78,6 +83,7 @@ button{
   background-color: var(--primary-color);
   color: white;
 }
+
 
 
 
@@ -272,11 +278,15 @@ ol {
     color: #333;
     word-break: break-word;
     overflow-wrap: break-word;
-   box-shadow: 0 2px 6px #2c302e;;
+   box-shadow: 0 2px 6px #2c302e;
+   
 }
+
+.categoryList li button:hover, .fList li button:hover{
+  font-size: 2em;
+}
+
   
-
-
 .categoryList li{
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -305,7 +315,14 @@ ol {
 }
 
 /* AI chat Styles */
+
+.aichat{
+  display: flex;
+  justify-self: flex-end;
+  
+}
 #chatBox {
+
   white-space: pre-wrap; /* this keeps line breaks and spacing */
   line-height: 1.6;      /* adds space between lines */
 }

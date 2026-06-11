@@ -11,16 +11,16 @@ export default class relationshipdata {
     this.category = category;
     this.path = `/json/${this.category}.json`;
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+  
+  async getData() {
+    const res = await fetch(this.path);
+    return convertToJson(res); // returns {category, heroImage, heroTitle, items}
   }
 
   async findProductById(id) {
-    const list = await this.getData();
-
-    // ✅ FIX: Force both values to numbers so JavaScript can match them perfectly!
-    return list.find((item) => Number(item.id) === Number(id));
+    const data = await this.getData();
+    
+    // Use data.items, not data directly
+    return data.items.find((item) => Number(item.id) === Number(id));
   }
 }

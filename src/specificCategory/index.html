@@ -27,19 +27,20 @@
   <body>
     <header id="main-header"></header>
     <main>
+      <section id="heroElement"></section>
       <ul class="categoryList"></ul>
 
       <button id="openForm">Write a Comment</button>
       <dialog id="myDialog">
         <div> <label for="name">Your Name:</label>
-        <input type="text" id="name" />
+        <input type="text" id="name" required/>
       </div>
-        <textarea name="comment" id="comment" placeholder="comment"></textarea>
+        <textarea name="comment" id="comment" placeholder="comment" required></textarea>
         <button id="closeDialog">Close</button>
         <button type="submit" id="submitButton">Send Comment</button>
       </dialog>
-
-      <a href="aichat.html">Chat with our Licenced Relationship Therapist</a>
+      <div class="aichat"><a href="aichat.html">Chat with our Licenced Relationship Therapist</a></div>
+     
 
     
     </main>

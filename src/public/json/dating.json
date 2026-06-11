@@ -1,6 +1,7 @@
 {
   "category": "dating",
-   "images":"images/dating-img.webp",
+   "images":"/images/dating-img.webp",
+   "title":"Dating Tips",
      "items":  [
       {
       "id": 1,

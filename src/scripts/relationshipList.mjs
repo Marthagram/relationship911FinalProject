@@ -6,8 +6,6 @@ import {
 } from "./utils.mjs";
 
 function relationshipTemplate(relationship) {
-
-  
   return `
     <li>
       <h3>${relationship.title}</h3>
@@ -22,22 +20,30 @@ export default class relationshipList {
     this.category = category;
     this.datasource = datasource;
     this.listElement = listElement;
-    this.relationship = {};
+    const heroElement =  document.querySelector("#heroElement");
   }
 
   async init() {
-    const list = await this.datasource.getData();
-    console.log("Loaded list:", list);
+    const data = await this.datasource.getData();
+    console.log("Loaded data:", data);
 
-    this.renderList(list);
+    // Render hero if you passed a heroElement
+    if (heroElement && data.images) {
+      heroElement.innerHTML = `
+        <div class="hero">
+          <img src="${data.images}" alt="${data.title}">
+          <h1>${data.title}</h1>
+        </div>
+      `;
+    }
+
+    // Render the list using data.items, not data
+    this.renderList(data.items);
 
     this.listElement.addEventListener("click", async (e) => {
       if (e.target.classList.contains("favoriteButton")) {
         const clickedId = e.target.getAttribute("data-id");
-        console.log("Clicked item ID:", clickedId);
-
         const favorite = await this.datasource.findProductById(clickedId);
-
         this.addFavorite(favorite, e.target);
       }
     });
@@ -54,20 +60,12 @@ export default class relationshipList {
       return;
     }
 
-    // 1. Grab whatever is currently in localStorage
     const cartItems = getLocalStorage("so-cart") || [];
-
-    // 2. Use lowercase .id matching your JSON fields and .some() for clean true/false flag
-    const isAlreadyFavorite = cartItems.some((item) => item.id === favorite.id);
+    const isAlreadyFavorite = cartItems.some((item) => Number(item.id) === Number(favorite.id));
 
     if (!isAlreadyFavorite) {
-      // 3. Securely push the new item into our local array copy
       cartItems.push(favorite);
-
-      // 4. Overwrite the key with the newly expanded array list
       setLocalStorage("so-cart", cartItems);
-
-      console.log("Successfully added to favorites!");
       alertMessage("Added to favorites!");
 
       if (buttonElement) {
@@ -75,7 +73,6 @@ export default class relationshipList {
         buttonElement.disabled = true;
       }
     } else {
-      console.log("Item is a duplicate. Skipping save.");
       alertMessage("This item is already in your favorites list!");
     }
   } 
