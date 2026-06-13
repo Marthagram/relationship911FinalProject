@@ -31,7 +31,7 @@ export default class relationshipList {
     if (heroElement && data.images) {
       heroElement.innerHTML = `
         <div class="hero">
-          <img src="${data.images}" alt="${data.title}">
+          <img src="${data.images}" alt="${data.title}" loading="lazy">
           <h1>${data.title}</h1>
         </div>
       `;
